@@ -1,0 +1,14 @@
+name: My first workflow
+
+on: push
+
+jobs:
+    my-first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: My first step
+              run: echo "Hello, world!"
+            - name: List the hidden files
+              run: ls -la
+            - name: read the file
+              run: cat README.md
