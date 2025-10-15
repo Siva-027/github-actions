@@ -8,9 +8,8 @@ jobs:
         steps:
             - name: Checkout repo
               uses: actions/checkout@v5
-            - name: My first step
-              run: echo "Hello, world!"
-            - name: List the hidden files
-              run: ls -la
-            - name: read the file
-              run: cat README.md
+            - name: Welcome, list and read the files
+              run: |
+                   echo "Hello, world!"
+                   ls -la
+                   cat README.md
