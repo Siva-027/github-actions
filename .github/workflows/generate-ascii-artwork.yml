@@ -9,11 +9,9 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v5
             
-            - name: Install cowsay program
-              run: sudo apt-get install cowsay -y
-
-            - name: Execute cowsay and save output
-              run: |
-                cowsay "Hello, GitHub Actions!" > ascii_art.txt
-                cat ascii_art.txt
+            - name: List files in the repository
+              run: ls -la
+              
+            - name: Execute Shell script to generate ASCII artwork
+              run: ./ascii-script.sh
 
