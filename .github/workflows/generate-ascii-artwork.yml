@@ -13,5 +13,5 @@ jobs:
               run: ls -ltra
 
             - name: Execute Shell script to generate ASCII artwork
-              run: ./ascii-script.sh
+              run: .github/workflows/ascii-script.sh
 
