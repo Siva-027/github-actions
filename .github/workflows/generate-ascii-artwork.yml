@@ -3,17 +3,31 @@ name: Generate ASCII Artwork
 on: push
 
 jobs:
-    generate-ascii:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Repository
-              uses: actions/checkout@v5
-            
-            - name: List files in the repository
-              run: ls -ltra
+  build-job-1:
+    runs-on: ubuntu-latest
+    steps:   
+      - name: Install cowsay program
+        run: sudo apt-get install -y cowsay
+      
+      - name: Execute cowsay command
+        run: cowsay "Hello, ASCII Art!" >> artwork.txt
+      
+      - name: Sleep for 10 seconds
+        run: sleep 10
+  test-job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep for 5 seconds
+        run: sleep 5
+      
+      - name: test file existence
+        run: grep "ASCII" artwork.txt
 
-            - name: Execute Shell script to generate ASCII artwork
-              run: |
-                chmod +x .github/workflows/ascii-script.sh
-                .github/workflows/ascii-script.sh
+  deploy-job-3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep for 5 seconds
+        run: sleep 5
 
+      - name: Display artwork
+        run: cat artwork.txt
