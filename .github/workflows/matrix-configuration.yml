@@ -8,13 +8,13 @@ jobs:
             fail-fast: false
             max-parallel: 2
             matrix:
-                os: [ubuntu-latest, ubuntu-24.03, windows-latest]
+                os: [ubuntu-latest, ubuntu-22.04.5, windows-latest]
                 images: [hello-world, alpine]
                 exclude:
                 - os: windows-latest
                   images: alpine
                 include:
-                - os: ubuntu-24.03
+                - os: ubuntu-22.04.5
                   images: busybox 
         runs-on: ${{ matrix.os }} 
         steps:
