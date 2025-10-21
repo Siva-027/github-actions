@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main           #Trigger on pushes to main branch
-      - '!feature/*'   #Exclude pushes to feature branches 
+      - '!feature/*'   #Exclude pushes to feature branches `
   pull_request:
     types:
       - opened         #Trigger on PR opened
