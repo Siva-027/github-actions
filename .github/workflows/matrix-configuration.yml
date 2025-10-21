@@ -6,16 +6,16 @@ jobs:
     deploy:
         strategy:
             fail-fast: false
-            max-parallel: 1
+            max-parallel: 2
             matrix:
-                os: [ubuntu-latest, ubuntu-20, windows-latest]
+                os: [ubuntu-latest, ubuntu-24.03, windows-latest]
                 images: [hello-world, alpine]
                 exclude:
                 - os: windows-latest
-                  images: [alpine]
+                  images: alpine
                 include:
-                - os: ubuntu-20
-                  images: [busybox] 
+                - os: ubuntu-24.03
+                  images: busybox 
         runs-on: ${{ matrix.os }} 
         steps:
         - name: docker information
