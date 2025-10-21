@@ -1,0 +1,22 @@
+name: Exlploring Workflow Filters
+
+on:
+  push:
+    branches:
+      - main           #Trigger on pushes to main branch
+      - '!feature/*'   #Exclude pushes to feature branches 
+  pull_request:
+    types:
+      - opened         #Trigger on PR opened
+      - closed         #Trigger on PR closed
+    paths-ignore:
+      - README.md      #Ignore changes to README.md
+    branches:
+      - main           #Trigger on PRs targeting main branch
+
+jobs:
+   hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 
+        run: echo this workflow/job/step is executed for event type ${{ github.event_name }}
